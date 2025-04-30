@@ -15,12 +15,12 @@ API ist erreichbar unter: `http://localhost:8000`
 - `app/`: Django Projekt
 - `Dockerfile`, `docker-compose.yml`: Containerisierung
 - `.github/workflows/django.yml`: CI/CD mit GitHub Actions
-
+- `.github/workflows/ci.yml` :  Microservices local deployment
 ## CI/CD
 
 Jede Änderung in `main` löst Tests und Linter aus.
 
-# Edu-Traefik-Example
+# Edu App with Traefik
 
 Ein Beispiel-Django-Projekt, das über Traefik als Reverse Proxy läuft.
 
@@ -50,3 +50,4 @@ docker-compose up # logo display ==Du kannst es in deiner Django-App mit WhiteNo
 (test)
 http://localhost/static/logo.png
 http://localhost/media/uploads/example_upload.png
+
