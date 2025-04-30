@@ -73,8 +73,8 @@ services:
       - web
   web:
     build:
-      context: ./django_app
-    container_name: django_app
+      context: ./app
+    container_name: app
     restart: always
     env_file:
       - ./django_app/.env  # Nur falls du Umgebungsvariablen auslagern willst
