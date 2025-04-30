@@ -40,3 +40,7 @@ python manage.py runserver
 
 ##fuer MVPs and upto mid-size Apps
 python -m http.server 8001 --directory ./staticfiles
+```bash
+docker-compose run web python manage.py collectstatic
+(test)
+http://localhost/static/admin/css/base.css
