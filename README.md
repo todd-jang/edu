@@ -34,3 +34,5 @@ Ein Beispiel-Django-Projekt, das über Traefik als Reverse Proxy läuft.
 
 ```bash
 docker-compose up --build
+```python
+python manage.py runserver
