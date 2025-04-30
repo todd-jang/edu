@@ -44,3 +44,6 @@ python -m http.server 8001 --directory ./staticfiles
 docker-compose run web python manage.py collectstatic
 (test)
 http://localhost/static/admin/css/base.css
+
+## wenn added logo.png 
+docker-compose up # logo display
