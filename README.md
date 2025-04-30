@@ -19,3 +19,18 @@ API ist erreichbar unter: `http://localhost:8000`
 ## CI/CD
 
 Jede Änderung in `main` löst Tests und Linter aus.
+
+# Edu-Traefik-Example
+
+Ein Beispiel-Django-Projekt, das über Traefik als Reverse Proxy läuft.
+
+## Dienste
+
+- Django API auf Port 8000 → erreichbar via http://localhost
+- PostgreSQL Datenbank
+- Traefik Dashboard → http://localhost:8080
+
+## Start
+
+```bash
+docker-compose up --build
