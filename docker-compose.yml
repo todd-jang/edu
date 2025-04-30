@@ -77,10 +77,12 @@ services:
     container_name: app
     restart: always
     env_file:
-      - ./django_app/.env  # Nur falls du Umgebungsvariablen auslagern willst
+      - ./app/.env  # Nur falls du Umgebungsvariablen auslagern willst
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.edu.rule=Host(`localhost`)"
+      - "traefik.http.routers.edu.middlewares=static-strip"
+      - "traefik.http.middlewares.static-strip.stripprefix.prefixes=/static,/media"
       - "traefik.http.services.edu.loadbalancer.server.port=8000"
     expose:
       - "8000"  # Intern für Traefik sichtbar
@@ -96,6 +98,8 @@ services:
       - "traefik.http.routers.static.rule=PathPrefix(`/static`, `/media`)"
 volumes:
   pgdata:
+  static_volume:
+  media_volume:
 
 networks:
   web:
