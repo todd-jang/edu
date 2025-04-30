@@ -1,7 +1,9 @@
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'edu_api/static'),
+]
 SECRET_KEY = 'dein-geheimer-schlüssel'
 DEBUG = True
 ALLOWED_HOSTS = ['*']
