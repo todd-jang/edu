@@ -15,7 +15,7 @@
    # environment:
     # POSTGRES_DB: edu_db
     # POSTGRES_USER: edu_user
-    #  POSTGRES_PASSWORD: edu_pass
+    # POSTGRES_PASSWORD: edu_pass
   #  volumes:
   #    - postgres_data:/var/lib/postgresql/data/
 #volumes:
@@ -24,7 +24,7 @@
 #Django-App mit Traefik erfolgt elegant über Docker-Labels, 
 #die Traefik automatisch erkennt. Dadurch kannst du dynamisches Routing
 #(per Subdomain oder Pfad) ohne manuelles Traefik-Konfigurationschaos umsetzen.
-version: '3.8'
+version: '3.8' #für Docker Swarm oder klassische Compose-Umgebungen geeignet.
 
 services:
   django:
@@ -45,10 +45,10 @@ services:
 
   db:
     image: postgres:15
-    environment:
-      POSTGRES_DB: edu
-      POSTGRES_USER: eduuser
-      POSTGRES_PASSWORD: edupass
+    container_name: postgres_db
+    restart: always
+    env_file:
+      - .env
     volumes:
       - pgdata:/var/lib/postgresql/data
     networks:
@@ -59,15 +59,33 @@ services:
     container_name: traefik
     command:
       - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
       - "--entrypoints.web.address=:80"
       - "--api.dashboard=true"
+      - "--api.insecure=true"
     ports:
       - "80:80"
-      - "8080:8080"
+      - "8080:8080" # Dashboard-Zugriff
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
+      
     networks:
       - web
+  web:
+    build:
+      context: ./django_app
+    container_name: django_app
+    restart: always
+    env_file:
+      - ./django_app/.env  # Nur falls du Umgebungsvariablen auslagern willst
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.edu.rule=Host(`localhost`)"
+      - "traefik.http.services.edu.loadbalancer.server.port=8000"
+    expose:
+      - "8000"  # Intern für Traefik sichtbar
+    networks:
+      - web    
 
 volumes:
   pgdata:
