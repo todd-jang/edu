@@ -46,4 +46,4 @@ docker-compose run web python manage.py collectstatic
 http://localhost/static/admin/css/base.css
 
 ## wenn added logo.png 
-docker-compose up # logo display
+docker-compose up # logo display ==Du kannst es in deiner Django-App mit WhiteNoise oder über den Traefik-Proxy ausliefern.
