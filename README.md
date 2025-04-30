@@ -1,22 +1,21 @@
-✅ GitHub Pages oder andere Dienste kombinierst
+# Django Edu API
 
-Traefik/Nginx können statische Inhalte und API unter einer Domain bündeln
-Feature
+Dies ist ein Beispielprojekt für eine Bildungs-API, gebaut mit Django und Docker Compose.
 
-📊 Dashboard:
-
-http://localhost:8080/dashboard/#/
-
-
-# Django + Traefik Beispiel
-
-Dieses Projekt zeigt eine Edu-API mit Traefik-Routing via Docker Compose.
-
-## Start
+## Schnellstart
 
 ```bash
-docker compose up --build
+docker-compose up --build
+```
 
-Zugriff
-	•	Traefik Dashboard: http://localhost:8080
-	•	Django App: http://edu.localhost (füge dies zu deiner /etc/hosts hinzu)
+API ist erreichbar unter: `http://localhost:8000`
+
+## Struktur
+
+- `app/`: Django Projekt
+- `Dockerfile`, `docker-compose.yml`: Containerisierung
+- `.github/workflows/django.yml`: CI/CD mit GitHub Actions
+
+## CI/CD
+
+Jede Änderung in `main` löst Tests und Linter aus.
