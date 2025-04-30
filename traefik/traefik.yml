@@ -1,3 +1,17 @@
+#Füge für Dev-Zwecke hinzu:
+#log:
+#  level: DEBUG
+
+#entryPoints:
+#  web:
+ #traefik:
+  #  address: ":8080"
+#das Dashboard erreichbar unter http://localhost:8080/dashboard/
+
+
+api:
+  dashboard: true
+  insecure: true
 entryPoints:
   web:
     address: ":80"
