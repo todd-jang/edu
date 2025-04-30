@@ -1,3 +1,4 @@
+#Ohne Traefik
 #version: '3.9'
 #services:
  # web:
@@ -20,7 +21,7 @@
 #volumes:
 #  postgres_data:
 
-#traefik : Django-App mit Traefik erfolgt elegant über Docker-Labels, 
+#Django-App mit Traefik erfolgt elegant über Docker-Labels, 
 #die Traefik automatisch erkennt. Dadurch kannst du dynamisches Routing
 #(per Subdomain oder Pfad) ohne manuelles Traefik-Konfigurationschaos umsetzen.
 version: '3.8'
