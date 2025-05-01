@@ -29,7 +29,7 @@ version: '3.8' #für Docker Swarm oder klassische Compose-Umgebungen geeignet.
 services:
   django:
     build:
-      context: ./django_app
+      context: ./app
     container_name: edu_api
     labels:
       - "traefik.enable=true"
