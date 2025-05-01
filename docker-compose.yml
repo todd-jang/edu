@@ -29,11 +29,11 @@ version: '3.8' #für Docker Swarm oder klassische Compose-Umgebungen geeignet.
 services:
   django:
     build:
-      context: ./django_app
-    container_name: django_app
+      context: ./app
+    container_name: app
     restart: always
     env_file:
-      - ./django_app/.env
+      - ./app/.env
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.django.rule=Host(`example.com`)"
