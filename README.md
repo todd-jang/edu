@@ -48,8 +48,8 @@ http://localhost/static/admin/css/base.css
 ## wenn added logo.png 
 docker-compose up # logo display ==Du kannst es in deiner Django-App mit WhiteNoise oder über den Traefik-Proxy ausliefern.
 (test)
-http://localhost/static/logo.png
-http://localhost/media/uploads/example_upload.png
+http://localhost/edu/ → Django Views
+http://localhost/edu/static/css/main.css → direkt aus staticfiles/ via WhiteNoise
 
 ## und dann
 ```python
