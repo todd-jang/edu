@@ -9,7 +9,12 @@
 #das Dashboard erreichbar unter http://localhost:8080/dashboard/
 labels:
   - "traefik.enable=true"
-  - "traefik.http.routers.myapp.rule=Host(`example.com`)"
+  - "traefik.http.routers.django.rule=PathPrefix(`/edu`)"
+  - "traefik.http.middlewares.strip-edu.stripprefix.prefixes=/edu"
+  - "traefik.http.routers.django.middlewares=strip-edu"
+  - "traefik.http.services.django.loadbalancer.server.port=8000"
+#Traefik-Konfiguration für /edu/media/
+#Wenn du wie bei /edu/static/ arbeitest
 
 api:
   dashboard: true
