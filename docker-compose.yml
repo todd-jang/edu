@@ -94,6 +94,21 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.static.rule=PathPrefix(`/static`, `/media`)"
+
+  minio:
+    image: minio/minio:latest
+    container_name: minio
+    restart: always
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    environment:
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: minioadmin
+    command: server /data
+    networks:
+      - web
+      
 volumes:
   pgdata:
   static_volume:
