@@ -55,3 +55,20 @@ http://localhost/edu/static/css/main.css → direkt aus staticfiles/ via WhiteNo
 ```python
 pip install whitenoise
 python manage.py collectstatic
+
+-----------------------------------------------------------------
+# Edu-Traefik-Example with MinIO
+This project demonstrates how to integrate Django, MinIO, and Traefik with Docker Compose.
+
+## Requirements
+- Docker
+- Docker Compose
+
+## Setup
+1. Clone the repo.
+2. Run `docker-compose up --build`.
+3. Access the app at `http://localhost:8000`.
+
+## MinIO Access
+- API: `http://localhost:9000`
+- Admin Console: `http://localhost:9001`
