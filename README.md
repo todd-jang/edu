@@ -72,3 +72,10 @@ This project demonstrates how to integrate Django, MinIO, and Traefik with Docke
 ## MinIO Access
 - API: `http://localhost:9000`
 - Admin Console: `http://localhost:9001`
+
+##Zugriff auf MinIO UI
+
+Wenn Docker läuft:
+	•	📁 S3 API: http://localhost:9000
+	•	🛠️ Admin Console: http://localhost:9001
+	•	🔑 Login: minioadmin / minioadmin
