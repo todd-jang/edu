@@ -7,7 +7,9 @@
  #traefik:
   #  address: ":8080"
 #das Dashboard erreichbar unter http://localhost:8080/dashboard/
-
+labels:
+  - "traefik.enable=true"
+  - "traefik.http.routers.myapp.rule=Host(`example.com`)"
 
 api:
   dashboard: true
