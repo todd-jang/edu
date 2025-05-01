@@ -51,3 +51,7 @@ docker-compose up # logo display ==Du kannst es in deiner Django-App mit WhiteNo
 http://localhost/static/logo.png
 http://localhost/media/uploads/example_upload.png
 
+## und dann
+```python
+pip install whitenoise
+python manage.py collectstatic
