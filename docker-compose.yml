@@ -28,8 +28,8 @@ version: '3.8' #für Docker Swarm oder klassische Compose-Umgebungen geeignet.
 
 services:
   django:
-    build:
-      context: ./app
+    image: edu-django
+    command: gunicorn edu_api.wsgi:application --bind 0.0.0.0:8000
     container_name: app
     restart: always
     env_file:

@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15
+    container_name: postgres_db
+    restart: always
+    env_file:
+      - ./.env
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - web
+
+  django:
+    build:
+      context: ./app
+    container_name: app
+    restart: always
+    env_file:
+      - ./app/.env
+    command: gunicorn edu-api.wsgi:application --bind 0.0.0.0:8000
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    networks:
+      - web
+
+volumes:
+  pgdata:
+
+networks:
+  web:
+    external: false
